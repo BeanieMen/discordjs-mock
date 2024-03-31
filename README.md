@@ -10,23 +10,20 @@ The source was: [AnswerOverflow](https://github.com/AnswerOverflow/AnswerOverflo
 
 ## Example
 
-The example below is using DiscordX and a simple singleton class to create the mocks. This is just an example and you can use any library you want to create the mocks.
+The example below is using DJS. This is just an example and you can use any library you want to create the mocks.
 
 ```ts
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { jest } from '@jest/globals';
+import {vi} from "vitest"
 import {
   mockClientUser,
   mockGuild,
   mockGuildMember,
   mockTextChannel,
   mockUser,
-} from '@shoginn/discordjs-mock';
+} from '@beanieman/discordjs-mock';
 import { Client, Guild, TextBasedChannel, TextChannel, User } from 'discord.js';
-import { Client as ClientX } from 'discordx';
-import { singleton } from 'tsyringe';
 
-@singleton()
 export class Mock {
   private client!: Client;
   private guild!: Guild;
@@ -64,7 +61,7 @@ export class Mock {
     this.client = new ClientX({ intents: [], guards: [] });
     mockClientUser(this.client);
 
-    this.client.login = jest.fn(() => Promise.resolve('LOGIN_TOKEN')) as any;
+    this.client.login = vi.fn(() => Promise.resolve('LOGIN_TOKEN'));
   }
 
   private mockGuild(): void {

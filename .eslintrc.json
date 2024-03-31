@@ -20,7 +20,6 @@
   ],
   "ignorePatterns": [
     ".eslintrc.js",
-    "jest.config.*",
     "dist/",
     "node_modules/",
     ".next/",

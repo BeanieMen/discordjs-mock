@@ -37,7 +37,7 @@ import {
   User,
 } from 'discord.js';
 import type { RawMessageReactionData } from 'discord.js/typings/rawDataTypes';
-
+import {vi} from "vitest"
 import { mockGuild } from './guild-mock.js';
 import { mockMessage } from './message-mock.js';
 import { sortMessagesById } from './utils/message.js';
@@ -95,7 +95,7 @@ function setupMockedChannel<T extends GuildBasedChannel>(
       };
       return Promise.resolve(output);
     };
-    channel.threads.fetchArchived = jest
+    channel.threads.fetchArchived = vi
       .fn()
       .mockImplementation((options: FetchArchivedThreadOptions = {}) => {
         let filteredThreads = [
@@ -167,7 +167,7 @@ function setupMockedChannel<T extends GuildBasedChannel>(
       return Promise.resolve(message);
     };
 
-    channel.messages.fetch = jest
+    channel.messages.fetch = vi
       .fn()
       .mockImplementation(
         (q: MessageResolvable | FetchMessagesOptions | FetchMessageOptions = {}) => {

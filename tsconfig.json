@@ -15,5 +15,5 @@
     "lib": ["ESNext"],
     "target": "ESNext"
   },
-  "include": ["src", "jest.config.ts", "index.ts", ".prettierrc.cjs"]
+  "include": ["src", "index.ts", ".prettierrc.cjs"]
 }
