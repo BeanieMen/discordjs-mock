@@ -1,10 +1,10 @@
 {
-  "name": "@shoginn/discordjs-mock",
-  "version": "1.0.2",
+  "name": "@beanieman/discordjs-mock",
+  "version": "1.0.3",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "type": "module",
-  "author": "@ShoGinn",
+  "author": "@beanieman",
   "license": "MIT",
   "files": [
     "dist"
@@ -26,7 +26,6 @@
   },
   "devDependencies": {
     "@tsconfig/strictest": "^2.0.5",
-    "@types/jest": "^29.5.12",
     "@types/lodash": "^4.17.0",
     "@types/node": "^20.11.30",
     "@typescript-eslint/eslint-plugin": "^7.4.0",
@@ -37,21 +36,16 @@
     "eslint-plugin-jsdoc": "^48.2.2",
     "eslint-plugin-simple-import-sort": "^12.0.0",
     "eslint-plugin-unicorn": "^51.0.1",
-    "jest": "^29.7.0",
     "prettier": "^3.2.5",
-    "ts-jest": "^29.1.2",
-    "ts-jest-resolver": "^2.0.1",
     "ts-node": "^10.9.2",
     "tsup": "^8.0.2",
     "typescript": "^5.4.3"
   },
   "scripts": {
-    "prepublishOnly": "pnpm build",
+    "prepublishOnly": "yarn build",
     "build": "tsup index.ts --target node18 --format cjs,esm --dts --sourcemap",
-    "build-watch": "pnpm build -- --watch",
+    "build-watch": "yarn build -- --watch",
     "clean": "rm -rf dist coverage",
-    "test": "pnpm jest --coverage",
-    "test:watch": "pnpm jest --watch",
     "format": "prettier --ignore-path .gitignore --config .prettierrc.cjs --write ./src",
     "format:check": "prettier --ignore-path .gitignore --config .prettierrc.cjs --check ./src",
     "lint": "eslint ./src && tsc --noEmit",
@@ -63,6 +57,7 @@
   "dependencies": {
     "@sapphire/snowflake": "^3.5.3",
     "discord.js": "^14.14.1",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "vitest": "^1.4.0"
   }
 }
